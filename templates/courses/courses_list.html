@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+</head>
+<body>
+    <h1>Course Management</h1>
+
+    <form method="GET">
+        <fieldset>
+            <legend>Create New Course</legend>
+            <label for="id_title">Title:</label><br>
+            <input type="text" id="id_title" name="title"><br><br>
+
+            <label for="id_description">Description:</label><br>
+            <textarea id="id_description" name="description"></textarea><br><br>
+
+            <label for="id_start_date">Start Date:</label><br>
+            <input type="date" id="id_start_date" name="start_date"><br><br>
+
+            <label for="id_end_date">End Date:</label><br>
+            <input type="date" id="id_end_date" name="end_date"><br><br>
+
+            <label for="id_max_students">Max Students:</label><br>
+            <input type="number" id="id_max_students" name="max_students"><br><br>
+
+            <button type="submit">Create Course</button>
+        </fieldset>
+    </form>
+
+    <h2>Course List</h2>
+    <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Max Students</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.title }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.start_date }}</td>
+            <td>{{ course.end_date }}</td>
+            <td>{{ course.max_students }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
